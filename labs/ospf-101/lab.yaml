@@ -1,0 +1,46 @@
+name: ospf-case-study
+prefix: ""
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.34.1F
+      enforce-startup-config: true    # ← must live under kinds.ceos
+  nodes:
+    r1:
+      kind: ceos
+      startup-config: ./configs/r1.cfg
+    r2:
+      kind: ceos
+      startup-config: ./configs/r2.cfg
+    r3:
+      kind: ceos
+      startup-config: ./configs/r3.cfg
+    r4:
+      kind: ceos
+      startup-config: ./configs/r4.cfg
+    r5:
+      kind: ceos
+      startup-config: ./configs/r5.cfg
+    r6:
+      kind: ceos
+      startup-config: ./configs/r6.cfg
+    r7:
+      kind: ceos
+      startup-config: ./configs/r7.cfg
+    rip:
+      kind: ceos
+      startup-config: ./configs/rip.cfg
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
+    - endpoints: ["r1:eth2", "r3:eth1"]
+    - endpoints: ["r2:eth2", "r4:eth1"]
+    - endpoints: ["r2:eth3", "r3:eth2"]
+    - endpoints: ["r3:eth3", "r4:eth2"]
+    - endpoints: ["r4:eth3", "r5:eth1"]
+    - endpoints: ["r4:eth4", "r5:eth2"]
+    - endpoints: ["r5:eth3", "r6:eth1"]
+    - endpoints: ["r5:eth4", "r7:eth1"]
+    - endpoints: ["r6:eth2", "r7:eth2"]
+    - endpoints: ["r6:eth3", "rip:eth1"]
+    - endpoints: ["r7:eth3", "rip:eth2"]
+

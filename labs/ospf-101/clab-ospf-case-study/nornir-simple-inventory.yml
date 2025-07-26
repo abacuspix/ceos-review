@@ -1,0 +1,41 @@
+---
+r1:
+    username: admin
+    password: admin
+    platform: ceos
+    hostname: 172.20.20.6
+r2:
+    username: admin
+    password: admin
+    platform: ceos
+    hostname: 172.20.20.5
+r3:
+    username: admin
+    password: admin
+    platform: ceos
+    hostname: 172.20.20.8
+r4:
+    username: admin
+    password: admin
+    platform: ceos
+    hostname: 172.20.20.3
+r5:
+    username: admin
+    password: admin
+    platform: ceos
+    hostname: 172.20.20.4
+r6:
+    username: admin
+    password: admin
+    platform: ceos
+    hostname: 172.20.20.7
+r7:
+    username: admin
+    password: admin
+    platform: ceos
+    hostname: 172.20.20.9
+rip:
+    username: admin
+    password: admin
+    platform: ceos
+    hostname: 172.20.20.2

@@ -1,0 +1,47 @@
+! Startup-config last modified at Sat Jul 26 11:01:01 2025 by root
+! device: r7 (cEOSLab, EOS-4.34.1F-42424637.4341F (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$j4XtjZKC6z1be3Bz$Ae.S8SWeilGWOPDZsZmFORUASnkhDJNEGe1j5G3f4Xu0QDpSLvng6F1kWHjq1pl3Zq8G/b99r7k37xx.HgQCS0
+!
+no service interface inactive port-id allocation disabled
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname r7
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+interface Ethernet1
+   no switchport
+   ip address 10.0.8.10/30
+!
+interface Ethernet2
+   no switchport
+   ip address 172.16.40.1/30
+!
+interface Ethernet3
+   no switchport
+   ip address 172.16.40.6/30
+!
+interface Loopback0
+   ip address 10.0.9.7/32
+!
+interface Management0
+   ip address 172.20.20.9/24
+   ipv6 address 3fff:172:20:20::9/64
+!
+interface Management1
+   no lldp transmit
+   no lldp receive
+!
+ip routing
+!
+end
