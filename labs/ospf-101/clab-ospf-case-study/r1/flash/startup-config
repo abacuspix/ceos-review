@@ -1,4 +1,4 @@
-! Startup-config last modified at Sat Jul 26 11:00:06 2025 by root
+! Startup-config last modified at Sat Jul 26 14:34:11 2025 by admin
 ! device: r1 (cEOSLab, EOS-4.34.1F-42424637.4341F (engineering build))
 !
 no aaa root
@@ -31,13 +31,36 @@ interface Loopback0
    ip address 10.0.6.1/32
 !
 interface Management0
-   ip address 172.20.20.6/24
-   ipv6 address 3fff:172:20:20::6/64
+   ip address 172.20.20.8/24
+   ipv6 address 3fff:172:20:20::8/64
 !
 interface Management1
    no lldp transmit
    no lldp receive
 !
 ip routing
+!
+route-map RM-EXT-10 permit 10
+   match interface Ethernet1
+   set metric 10
+   set tag 420
+!
+router multicast
+   ipv4
+      software-forwarding kernel
+   !
+   ipv6
+      software-forwarding kernel
+!
+router ospf 1
+   router-id 10.0.6.1
+   passive-interface Ethernet1
+   redistribute connected route-map RM-EXT-10
+   area 0.0.0.1 stub no-summary
+   network 10.0.4.12/30 area 0.0.0.1
+   network 10.0.5.0/24 area 0.0.0.0
+   network 10.0.6.1/32 area 0.0.0.1
+   max-lsa 12000
+   default-information originate
 !
 end
