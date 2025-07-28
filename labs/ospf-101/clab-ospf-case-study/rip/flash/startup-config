@@ -1,4 +1,4 @@
-! Startup-config last modified at Sat Jul 26 14:05:59 2025 by root
+! Startup-config last modified at Sun Jul 27 15:13:52 2025 by root
 ! device: rip (cEOSLab, EOS-4.34.1F-42424637.4341F (engineering build))
 !
 no aaa root
@@ -26,14 +26,21 @@ interface Ethernet2
    no switchport
 !
 interface Management0
-   ip address 172.20.20.5/24
-   ipv6 address 3fff:172:20:20::5/64
+   ip address 172.20.20.6/24
+   ipv6 address 3fff:172:20:20::6/64
 !
 interface Management1
    no lldp transmit
    no lldp receive
 !
 ip routing
+!
+router multicast
+   ipv4
+      software-forwarding kernel
+   !
+   ipv6
+      software-forwarding kernel
 !
 router rip
    network 172.16.40.0/30
