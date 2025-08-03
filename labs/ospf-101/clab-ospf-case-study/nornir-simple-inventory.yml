@@ -3,27 +3,27 @@ r1:
     username: admin
     password: admin
     platform: ceos
-    hostname: 172.20.20.3
+    hostname: 172.20.20.9
 r2:
     username: admin
     password: admin
     platform: ceos
-    hostname: 172.20.20.8
+    hostname: 172.20.20.2
 r3:
     username: admin
     password: admin
     platform: ceos
-    hostname: 172.20.20.2
+    hostname: 172.20.20.3
 r4:
     username: admin
     password: admin
     platform: ceos
-    hostname: 172.20.20.7
+    hostname: 172.20.20.5
 r5:
     username: admin
     password: admin
     platform: ceos
-    hostname: 172.20.20.9
+    hostname: 172.20.20.6
 r6:
     username: admin
     password: admin
@@ -33,9 +33,9 @@ r7:
     username: admin
     password: admin
     platform: ceos
-    hostname: 172.20.20.5
+    hostname: 172.20.20.8
 rip:
     username: admin
     password: admin
     platform: ceos
-    hostname: 172.20.20.6
+    hostname: 172.20.20.7
